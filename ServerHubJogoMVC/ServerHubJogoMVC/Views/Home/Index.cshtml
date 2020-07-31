@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="container" id="login">
+    <input id="meuIcone" type="text" value="" style="display:none" />
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-2">Apelido</div>
+        <div class="col-4"><input type="text" id="apelido" /></div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-6">
+            <input type="button" id="btnAcessar" value="Entrar na fila" />
+        </div>
+    </div>
+</div>
+<div class="container" id="Tabuleiro" style="display:normal">
+    <div class="row"><p id="jogadorA"></p></div>
+
+    <div class="col-12">
+        <div class="grid-container" style="height:400px">
+
+            <div class="grid-item tabuleiro" posicao="A1">
+                <i class="icon-search"></i>
+            </div>
+            <div class="grid-item tabuleiro" posicao="B1">                
+            </div>
+            <div class="grid-item tabuleiro" posicao="C1"></div>
+            <div class="grid-item tabuleiro" posicao="A2"></div>
+            <div class="grid-item tabuleiro" posicao="B2"></div>
+            <div class="grid-item tabuleiro" posicao="C2"></div>
+            <div class="grid-item tabuleiro" posicao="A3"></div>
+            <div class="grid-item tabuleiro" posicao="B3"></div>
+            <div class="grid-item tabuleiro" posicao="C3"></div>
+
+        </div>
+    </div>
+    <div class="row"><p id="jogadorB"></p></div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <p id="msgServidor"></p>
+    </div>
+</div>
+
+
+
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/ComandosHub.js"></script>
+<link href="~/css/tabuleiro.css" rel="stylesheet" />
