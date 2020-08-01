@@ -1,5 +1,4 @@
 ﻿"use strict";
-//var _url = "https://localhost:44360/hubJogar";
 var _url = "hub";
 var connection = new signalR.HubConnectionBuilder().withUrl(_url).build();
 

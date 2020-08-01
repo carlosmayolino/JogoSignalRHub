@@ -7,6 +7,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8000:80
+    networks:
+     - RedeCM
+     
   
 networks:
   RedeCM:
