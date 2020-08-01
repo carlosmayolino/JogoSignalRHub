@@ -7,14 +7,26 @@ var connection = new signalR.HubConnectionBuilder().withUrl(_url).build();
 //Disable send button until connection is established
 document.getElementById("btnAcessar").disabled = true;
 
-connection.on("EntrouNaFila", function (msg) {
-    //var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");    
+//RESPOSTAS DO SERVIDOR
+connection.on("EntrouNaFila", function (msg) {    
     document.getElementById("msgServidor").innerHTML = "";
     document.getElementById("msgServidor").innerHTML = msg;
 
 });
+
+connection.on("JogadaAprovada", function (icone, posicao) {
+    try {
+        console.log($("#" + posicao)[0]);
+        $("#" + posicao)[0].innerHTML = icone;
+        
+       
+    } catch (e) {
+        console.log(e);
+    }
+    
+});
+
 connection.on("PartidaIniciada", function (jogardorA, jogadorB) {
-    console.log($("#msgServidor"));
     $("#login").hide();
     $("#msgServidor")[0].innerHTML = "";
     $("#Tabuleiro").show();
@@ -45,7 +57,8 @@ $(document).ready(function () {
 
 function Jogada() {
     $(".tabuleiro").click(function () {        
-        connection.invoke("jogar", $(this).attr("posicao")).catch(function (err) {
+        connection.invoke("jogar", $(this).attr("posicao"))
+            .catch(function (err) {
             return console.error(err.toString());
         });
         event.preventDefault();

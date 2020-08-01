@@ -10,7 +10,7 @@ namespace ServerHubJogoMVC.Server.Model.BDHub
         private static List<Partida> _dbSetPartidas = new List<Partida>();
 
         public void AddJogador(Jogador instancia)
-        {            
+        {
             _dbSetJogador.Add(instancia);
         }
         public List<Jogador> ObterJogador()
@@ -18,11 +18,22 @@ namespace ServerHubJogoMVC.Server.Model.BDHub
             return _dbSetJogador;
         }
 
-        public void AddPartida(Jogador a, Jogador b)
+        public Partida AddPartida(List<Jogador> jogadores)
         {
-            a.PartidaEmAndamento = true;
-            b.PartidaEmAndamento = true;
-            _dbSetPartidas.Add(new Partida { Jogadores = new List<Jogador> { a, b } });
+            var _partida = new Partida();
+
+            if (jogadores.Count == 2)
+            {
+                foreach (var item in jogadores)
+                {
+                    item.PartidaEmAndamento = true;
+                    _partida.Participantes.Add(item);
+                }
+                _dbSetPartidas.Add(_partida);
+                _partida.PartidaIniciada = true;
+                return _partida;
+            }
+            return _partida;
         }
 
     }

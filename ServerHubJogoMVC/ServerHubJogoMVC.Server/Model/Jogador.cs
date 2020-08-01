@@ -10,7 +10,7 @@ namespace ServerHubJogoMVC.Server.Model
         public string Id { get; set; }
         public string Apelido { get; set; }
         public bool PartidaEmAndamento { get; set; }
+        public bool EhMinhaVez { get; set; }
 
-        
     }
 }
