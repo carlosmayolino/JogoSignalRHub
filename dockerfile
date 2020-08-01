@@ -6,7 +6,7 @@ COPY ./ServerHubJogoMVC ./
 RUN dotnet restore
 RUN dotnet publish -c Debug -o out
 
-FROM mcr.microsoft.com/dotnet/core/runtime:3.1
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 WORKDIR /app
 
 COPY --from=img-build /app/out .
