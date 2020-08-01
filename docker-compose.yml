@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  webappHub:
+    container_name: webapp-front
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:80
