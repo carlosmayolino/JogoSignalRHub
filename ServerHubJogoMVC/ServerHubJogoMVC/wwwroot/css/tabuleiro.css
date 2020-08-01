@@ -1,19 +1,24 @@
 ﻿
-.grid-container {
+.grid {
     display: grid;
-    grid-template-columns: auto auto auto;
-    background-color: #0094ff;
-    padding: 10px;
+    max-width: 600px;
+    max-height: 600px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    
+}
+.grid-tablueiro {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 150px);
 }
 
 .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-}
-.grid-item-disponivel {
-    border: 2px solid rgba(0, 0, 0, 0.8);
-    background-color: rgb(128, 128, 128);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    background: tomato;    
+    font-size: 1.5em;
 }
 
 
